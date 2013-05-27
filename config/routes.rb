@@ -1,7 +1,8 @@
 Spendyserver::Application.routes.draw do
-
-  get "users/new"
-
+  
+  #Create RESTful interface for Users Controller
+  resources :users
+  
   root :to => 'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/help',    to: 'static_pages#help',    via: 'get'

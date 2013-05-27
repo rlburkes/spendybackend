@@ -13,6 +13,7 @@ end
 group :test do
   gem 'selenium-webdriver'
   gem 'capybara'
+  gem 'factory_girl_rails'
 end
 
 gem 'sass-rails',   '~> 3.2.3'
