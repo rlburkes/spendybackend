@@ -3,11 +3,18 @@ Spendyserver::Application.routes.draw do
   #Create RESTful interface for Users Controller
   resources :users
   
+  #Create RESTful interface for Sessions Controller with
+  #limited REST actions
+  resources :sessions, only: [:new, :create, :destroy]
+  
   root :to => 'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
