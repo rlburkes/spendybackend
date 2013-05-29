@@ -7,6 +7,8 @@ Spendyserver::Application.routes.draw do
   #limited REST actions
   resources :sessions, only: [:new, :create, :destroy]
   
+  resources :expenses, only: [:create, :destroy]
+  
   root :to => 'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'

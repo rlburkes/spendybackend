@@ -15,6 +15,7 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:admin) }
+  it { should respond_to(:expenses) }
 
   it { should_not be_admin }
   it { should be_valid }
@@ -132,6 +133,41 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+  
+  describe "expense associations" do
+
+    before { @user.save }
+    let!(:older_expense) do 
+      FactoryGirl.create(:expense, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_expense) do
+      FactoryGirl.create(:expense, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right expenses in the right order" do
+      @user.expenses.should == [newer_expense, older_expense]
+    end
+    
+    it "should destroy associated expenses" do
+      expenses = @user.expenses.dup
+      @user.destroy
+      expenses.should_not be_empty
+      expenses.each do |expense|
+        Expense.find_by_id(expense.id).should be_nil
+      end
+    end
+    
+    describe "status" do
+      let(:unfollowed_post) do
+        FactoryGirl.create(:expense, user: FactoryGirl.create(:user))
+      end
+
+      its(:feed) { should include(newer_expense) }
+      its(:feed) { should include(older_expense) }
+      its(:feed) { should_not include(unfollowed_post) }
+    end
+    
   end
 
 end

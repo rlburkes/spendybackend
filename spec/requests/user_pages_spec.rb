@@ -56,11 +56,19 @@ describe "User pages" do
   
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:e1) { FactoryGirl.create(:expense, user: user, amount: 0.23) }
+    let!(:e2) { FactoryGirl.create(:expense, user: user, amount: 1.34) }
                
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
+    
+    describe "expenses" do
+      it { should have_content(e1.amount) }
+      it { should have_content(e2.amount) }
+      it { should have_content(user.expenses.count) }
+    end
   end
   
   describe "signup" do

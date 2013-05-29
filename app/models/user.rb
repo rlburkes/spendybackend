@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   before_save :create_remember_token
   
   attr_accessible :email, :name, :password, :password_confirmation
+  has_many :expenses, dependent: :destroy
   
   validates :name, presence: true, length: { maximum: 50 }
   
@@ -14,6 +15,10 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password_confirmation, presence: true
   validates :password, length: { minimum: 6 }
+  
+  def feed
+    Expense.where("user_id = ?", id)
+  end
   
   private
 	def create_remember_token

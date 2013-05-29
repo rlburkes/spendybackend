@@ -16,5 +16,11 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end
+    
+    users = User.all(limit: 6)
+    50.times do
+      amount = (200.0 - 5.0) * rand() + 5
+      users.each { |user| user.expenses.create!(amount: amount) }
+    end
   end
 end

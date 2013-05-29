@@ -1,0 +1,11 @@
+<li>
+  <span class="amount">$<%= number_with_precision(expense.amount, precision: 2) %></span>
+  <span class="timestamp">
+    <%= time_ago_in_words(expense.created_at) %> ago.
+  </span>
+  <% if current_user?(expense.user) %>
+    <%= link_to "delete", expense, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: expense.amount %>
+  <% end %>
+</li>

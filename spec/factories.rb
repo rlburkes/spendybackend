@@ -9,4 +9,9 @@ FactoryGirl.define do
       admin true
     end
   end
+  
+  factory :expense do
+    amount 31.24
+    user
+  end
 end
