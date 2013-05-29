@@ -2,8 +2,22 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_save :create_remember_token
   
+  acts_as_tagger
+  
   attr_accessible :email, :name, :password, :password_confirmation
   has_many :expenses, dependent: :destroy
+  
+  #The use of a foreign_key here is because the relationships table
+  #keeps a follower_id, we need to inform rails that this differs than 
+  #the expected user_id
+  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+  
+  has_many :reverse_relationships, foreign_key: "followed_id",
+                                   class_name:  "Relationship",
+                                   dependent:   :destroy
+  has_many :followers, through: :reverse_relationships, source: :follower
+  
+  has_many :followed_users, through: :relationships, source: :followed
   
   validates :name, presence: true, length: { maximum: 50 }
   
@@ -17,7 +31,30 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   
   def feed
-    Expense.where("user_id = ?", id)
+    Expense.from_users_followed_by(self)
+  end
+  
+  def following?(other_user)
+    relationships.find_by_followed_id(other_user.id)
+  end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+  
+  def unfollow!(other_user)
+    relationships.find_by_followed_id(other_user.id).destroy
+  end
+  
+  def tags
+  	expenses =  Expense.where("user_id = ?", id)
+  	list = []
+  	expenses.each do |expense|
+  	  expense.tags.each do |tag|
+  	    list.push(tag)
+  	  end
+  	end
+  	list
   end
   
   private

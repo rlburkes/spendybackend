@@ -1,8 +1,11 @@
-<%= form_for(@expense) do |f| %>
+<%= form_for @expense, :builder => StandardFormBuilder do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.label :amount %>
     <%= f.text_field :amount %>
+    <%= f.label :tags %>
+    <%=f.text_field_with_list :tag_list, :label => "Tag List", :datalist => @tags %>
+    <ul>
   </div>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>

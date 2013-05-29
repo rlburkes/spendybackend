@@ -1,0 +1,7 @@
+<% provide(:title, params[:tag]) %> 
+<h1><%= params[:tag] %> Total: $<%= number_with_precision(@total, precision: 2) %> </h1>
+<% if @expenses.any? %>
+  <ol class="expenses">
+    <%= render partial: 'shared/feed_item', collection: @expenses %>
+  </ol>
+<% end %>

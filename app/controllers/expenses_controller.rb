@@ -15,7 +15,16 @@ class ExpensesController < ApplicationController
       render 'static_pages/home'
     end
   end
-
+  
+  def tagged
+    if params[:tag].present? 
+      @expenses = Expense.tagged_with(params[:tag])
+      @total = @expenses.sum(:amount)
+    else 
+      @expenses = Expense.postall
+    end  
+  end
+  
   def destroy
     @expense.destroy
     redirect_to root_url

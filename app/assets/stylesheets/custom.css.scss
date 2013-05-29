@@ -132,9 +132,57 @@ aside {
   }
 }
 
+.stats {
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $grayLighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+}
+
 .gravatar {
   float: left;
   margin-right: 10px;
+}
+
+
+/* Tag Cloud Styles */
+
+.css1 { 
+  font-size: 1.0em; 
+}
+
+.css2 { 
+  font-size: 1.2em;
+}
+
+.css3 {
+  font-size: 1.4em; 
+}
+
+.css4 { 
+  font-size: 1.6em; 
 }
 
 /* users index */
@@ -179,7 +227,6 @@ aside {
     margin-bottom: 5px;
   }
 }
-
 
 /* forms */
 

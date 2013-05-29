@@ -4,6 +4,12 @@
     <%= link_to feed_item.user.name, feed_item.user %>
   </span>
   <span class="amount">$<%= number_with_precision(feed_item.amount, precision: 2) %></span>
+  <div>
+	<% feed_item.tags.any? %>
+	  <% feed_item.tags.each do |tag| %>
+	  <%= link_to tag.name, tagged_url(:tag => tag.name), class: "btn btn-mini btn-secondary" %>
+	<% end %>
+  </div>
   <span class="timestamp">
     <%= time_ago_in_words(feed_item.created_at) %> ago.
   </span>

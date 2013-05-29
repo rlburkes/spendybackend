@@ -12,6 +12,7 @@ FactoryGirl.define do
   
   factory :expense do
     amount 31.24
+    tags ["Beer", "Chicken"]
     user
   end
 end
