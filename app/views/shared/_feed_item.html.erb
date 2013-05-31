@@ -7,7 +7,7 @@
   <div>
 	<% feed_item.tags.any? %>
 	  <% feed_item.tags.each do |tag| %>
-	  <%= link_to tag.name, tagged_url(:tag => tag.name), class: "btn btn-mini btn-secondary" %>
+	  <%= link_to tag.name, tagged_url(:tag => tag.name), class: "btn btn-mini" %>
 	<% end %>
   </div>
   <span class="timestamp">

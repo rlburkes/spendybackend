@@ -17,11 +17,12 @@ class ExpensesController < ApplicationController
   end
   
   def tagged
+    @tags = current_user.expenses.tag_counts_on(:tags)
     if params[:tag].present? 
-      @expenses = Expense.tagged_with(params[:tag]).where("user_id = ?", current_user.id)
+      @expenses = Expense.tagged_with(params[:tag], any: true).where("user_id = ?", current_user.id)
       @total = @expenses.sum(:amount)
     else 
-      @expenses = Expense.postall
+      @expenses = current_user.expenses
     end  
   end
   

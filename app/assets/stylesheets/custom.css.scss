@@ -13,8 +13,14 @@ html {
   overflow-y: scroll;
 }
 
-body {
-  padding-top: 0px;
+body { 
+  padding-top: 60px; 
+}
+
+@media screen and (max-width: 940px) {
+    body { 
+      padding-top: 0px; 
+    }
 }
 
 section {

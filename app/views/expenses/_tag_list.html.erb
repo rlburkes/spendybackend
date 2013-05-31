@@ -1,0 +1,9 @@
+<% tag_cloud(@tags, %w(foo)) do |tag, css_class| %>
+  <% tagList = params[:tag].split(',') %>
+  <% if tagList.include?(tag.name)%>
+    <% tagList.delete(tag.name) %>
+  <% else %>
+    <% tagList.push(tag.name) %>
+  <% end %>
+  <%= link_to tag.name, tagged_url(:tag => tagList.join(',')), :class => (tagList.include?(tag.name) ? 'btn btn-mini' : 'btn btn-mini btn-info')  %> 
+<% end %>
