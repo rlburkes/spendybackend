@@ -6,6 +6,7 @@ class ExpensesController < ApplicationController
   end
   
   def enter
+      @tags = current_user.expenses.tag_counts_on(:tags)
   end
   
   def create
