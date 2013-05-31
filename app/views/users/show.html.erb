@@ -6,6 +6,9 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <span>
+        <%= link_to "Enter Expense", root_path %>
+      </span>
     </section>
     <section>
       <%= render 'shared/stats' %>
