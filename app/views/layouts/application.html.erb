@@ -6,12 +6,29 @@
                                            "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+      content="initial-scale=1.0">
+    <meta name="viewport"
+      content="width=320.1">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link href="/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
-    <link href="/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-    <link href="/apple-touch-startup-image-640x1136.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    
+    <link href="/apple-touch-startup-image-320x460.png" 
+          media="(device-width: 320px)"  
+          rel="apple-touch-startup-image">
+    
+    <link href="/apple-touch-startup-image-640x920.png" 
+          media="(device-width: 320px) 
+             and (device-height: 480px) 
+             and (-webkit-device-pixel-ratio: 2)" 
+          rel="apple-touch-startup-image">
+    
+    <link href="/apple-touch-startup-image-640x1096.png" 
+          media="(device-width: 320px) 
+             and (device-height: 568px) 
+             and (-webkit-device-pixel-ratio: 2)" 
+          rel="apple-touch-startup-image">
+    
     <link rel="apple-touch-icon-precomposed" href="/icon.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/icon@2x.png" />
     <%= render 'layouts/shim' %>
