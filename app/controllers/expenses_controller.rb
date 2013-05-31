@@ -5,6 +5,9 @@ class ExpensesController < ApplicationController
   def index
   end
   
+  def enter
+  end
+  
   def create
     @expense = current_user.expenses.build(params[:expense])
     if @expense.save
