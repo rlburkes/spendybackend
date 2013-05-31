@@ -13,12 +13,14 @@
   </aside>
   <div class="span8">
     <%= render 'follow_form' if signed_in? %>
-    <% if @user.expenses.any? %>
-      <h3>Expenses (<%= @user.expenses.count %>) - $<%= number_with_precision(@total, precision: 2) %></h3>
-      <ol class="expenses">
-        <%= render @expenses %>
-      </ol>
-      <%= will_paginate @expenses %>
-    <% end %>
+    <% if current_user == @user || current_user.following?(@user) && @user.following?(current_user) %>
+		<% if @user.expenses.any? %>
+		  <h3>Expenses (<%= @user.expenses.count %>) - $<%= number_with_precision(@total, precision: 2) %></h3>
+		  <ol class="expenses">
+			<%= render @expenses %>
+		  </ol>
+		  <%= will_paginate @expenses %>
+		<% end %>
+    <% end %>		
   </div>
 </div>

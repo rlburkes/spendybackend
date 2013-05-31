@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }
   
   def feed
-    Expense.from_users_followed_by(self)
+    expenses = Expense.from_users_followed_by(self)
   end
   
   def following?(other_user)
