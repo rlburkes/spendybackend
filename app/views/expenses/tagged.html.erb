@@ -1,6 +1,11 @@
 <% provide(:title, params[:tag]) %> 
 <h2><%= params[:tag].split(',').join(', ') %> <br/> Total: $<%= number_with_precision(@total, precision: 2) %> </h2>
-<%= render partial: 'expenses/tag_list' %>
+<%= render partial: 'expenses/tag_list' %> <br/><br/>
+<% if @users.count > 1 %>
+	<% @users.each do |user| %>
+	  <%= render partial: 'shared/user_list', locals: {:user => user} %>
+	<% end %>
+<% end %>
 <% if @expenses.any? %>
   <ol class="expenses">
     <%= render partial: 'shared/feed_item', collection: @expenses %>

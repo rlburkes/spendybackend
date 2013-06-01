@@ -16,14 +16,18 @@ class ExpensesController < ApplicationController
       redirect_to root_url
     else
       @feed_items = current_user.feed.paginate(page: params[:page])
+      @tags = current_user.feed.tag_counts_on(:tags)
       render 'static_pages/home'
     end
   end
   
   def tagged
     @tags = current_user.feed.tag_counts_on(:tags)
+    @users = current_user.friends
+    @foo = params[:user].split(',').map(&:to_i)
+    @includeIds = current_user.friend_ids - @foo
     if params[:tag].present? 
-      @expenses = Expense.tagged_with(params[:tag], any: true).where(:user_id => current_user.friend_ids)
+      @expenses = Expense.tagged_with(params[:tag], any: true).where(:user_id => @includeIds)
       @total = 0.00
       @expenses.each do |expense|
         @total += expense.amount
@@ -31,8 +35,8 @@ class ExpensesController < ApplicationController
       #Why is this not the same as looping and adding?
       #@total = @expenses.sum(:amount, :distinct => true)
     else 
-      @total = 0.00
-      @expenses = current_user.feed
+     @expenses = current_user.feed.where(:user_id => @includeIds)
+     @total = @expenses.sum(:amount) 
     end  
   end
   

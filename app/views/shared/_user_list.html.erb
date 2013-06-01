@@ -1,0 +1,11 @@
+<% if params[:user] %>
+  <% userList = params[:user].split(',') %>
+  <% if userList.include?(user.id.to_s) %>
+    <% userList.delete(user.id.to_s) %>
+  <% else %>
+    <% userList.push(user.id) %>
+  <% end %>
+  <%= link_to user.name, tagged_url(params.merge(:user => userList.join(','))), :class => (userList.include?(user.id) ? 'btn btn-mini btn-success' : 'btn btn-mini btn-danger')  %>
+<% else %>
+  <%= link_to user.name, tagged_url(params.merge(:user => user.id)), :class =>  'btn btn-mini btn-success'  %>
+<% end %> 

@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
     friend_ids
   end
   
+  def friends
+  	User.find_all_by_id(self.friend_ids)
+  end
+  
   def following?(other_user)
     relationships.find_by_followed_id(other_user.id)
   end

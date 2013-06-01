@@ -5,7 +5,7 @@
   <% else %>
     <% tagList.push(tag.name) %>
   <% end %>
-  <%= link_to tag.name, tagged_url(:tag => tagList.join(',')), :class => (tagList.include?(tag.name) ? 'btn btn-mini' : 'btn btn-mini btn-info')  %>
+  <%= link_to tag.name, tagged_url(params.merge(:tag => tagList.join(','))), :class => (tagList.include?(tag.name) ? 'btn btn-mini' : 'btn btn-mini btn-info')  %>
 <% else %>
-  <%= link_to tag.name, tagged_url(:tag => tag.name), :class =>  'btn btn-mini'  %>
+  <%= link_to tag.name, tagged_url(params.merge(:tag => tag.name)), :class =>  'btn btn-mini'  %>
 <% end %> 
