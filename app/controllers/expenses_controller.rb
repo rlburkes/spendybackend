@@ -24,8 +24,14 @@ class ExpensesController < ApplicationController
     @tags = current_user.expenses.tag_counts_on(:tags)
     if params[:tag].present? 
       @expenses = Expense.tagged_with(params[:tag], any: true).where("user_id = ?", current_user.id)
-      @total = @expenses.sum(:amount)
+      @total = 0.00
+      @expenses.each do |expense|
+        @total += expense.amount
+      end
+      #Why is this not the same as looping and adding?
+      #@total = @expenses.sum(:amount, :distinct => true)
     else 
+      @total = 0.00
       @expenses = current_user.expenses
     end  
   end

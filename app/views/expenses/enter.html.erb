@@ -1,2 +1,10 @@
-<input type="tel" style="text-align: right; width: 100px;"/> <br/>
-<%= render 'expenses/tag_quick' %>
+<input id="foo" type="tel" style="text-align: right; width: 200px;"/> <br/>
+<%= render 'expenses/tag_quick' %> <br /><br/>
+<script type="text/javascript">
+	$('#foo').blur(function() {
+	  
+	});
+	$('#foo').click(function() {
+      $('#foo').blur();
+    });
+</script>

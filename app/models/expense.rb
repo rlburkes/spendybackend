@@ -15,7 +15,7 @@ class Expense < ActiveRecord::Base
     followed_user_ids = "SELECT followed_id FROM relationships
                          WHERE follower_id = :user_id"
                          
-    #followed_user_ids =  "SELECT * FROM (SELECT * FROM reverse_relationships
+    #followed_user_ids =  "SELECT * FROM (SELECT * FROM relationships
     #                      WHERE follower_id = :user_id) WHERE followed_id = :user_id"
                          
     self.where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", 
