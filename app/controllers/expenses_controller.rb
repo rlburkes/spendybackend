@@ -24,8 +24,11 @@ class ExpensesController < ApplicationController
   def tagged
     @tags = current_user.feed.tag_counts_on(:tags)
     @users = current_user.friends
-    @foo = params[:user].split(',').map(&:to_i)
-    @includeIds = current_user.friend_ids - @foo
+    @includeIds = current_user.friend_ids
+
+    if params[:user].present?
+      @includeIds = @includeIds - params[:user].split(',').map(&:to_i)
+    end
     if params[:tag].present? 
       @expenses = Expense.tagged_with(params[:tag], any: true).where(:user_id => @includeIds)
       @total = 0.00
