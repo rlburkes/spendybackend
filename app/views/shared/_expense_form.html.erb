@@ -2,7 +2,7 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.label :amount %>
-    <%= f.text_field :amount %>
+    <%= f.text_field :amount, :type => 'number'%>
     <%= f.label :tags %>
     <%=f.text_field_with_list :tag_list, :label => "Tag List", :datalist => @tags %>
     <ul>
