@@ -4,7 +4,7 @@
     <%= f.label :amount %>
     <%= f.text_field :amount, :type => 'number'%>
     <%= f.label :tags %>
-    <%=f.text_field_with_list :tag_list, :label => "Tag List", :datalist => @tags %>
+    <%=h f.text_field_with_list :tag_list, :label => "Tag List", :datalist => @tags %>
     <ul>
   </div>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
