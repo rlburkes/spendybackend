@@ -21,9 +21,9 @@ class ExpensesController < ApplicationController
   end
   
   def tagged
-    @tags = current_user.expenses.tag_counts_on(:tags)
+    @tags = current_user.feed.tag_counts_on(:tags)
     if params[:tag].present? 
-      @expenses = Expense.tagged_with(params[:tag], any: true).where("user_id = ?", current_user.id)
+      @expenses = Expense.tagged_with(params[:tag], any: true).where(:user_id => current_user.friend_ids)
       @total = 0.00
       @expenses.each do |expense|
         @total += expense.amount
@@ -32,7 +32,7 @@ class ExpensesController < ApplicationController
       #@total = @expenses.sum(:amount, :distinct => true)
     else 
       @total = 0.00
-      @expenses = current_user.expenses
+      @expenses = current_user.feed
     end  
   end
   
