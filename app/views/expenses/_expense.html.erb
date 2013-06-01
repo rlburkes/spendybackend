@@ -3,7 +3,7 @@
   <div>
 	<% expense.tags.any? %>
 	  <% expense.tags.each do |tag| %>
-	  <%= link_to tag.name, tagged_url(:tag => tag.name), class: "btn btn-mini btn-secondary" %>
+	  <%= link_to tag.name, tagged_url(:tag => tag.name, :user => ''), class: "btn btn-mini btn-secondary" %>
 	<% end %>
   </div>
   <span class="timestamp">
