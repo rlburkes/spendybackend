@@ -10,6 +10,10 @@
 		<span>
           <%= link_to "Enter Expense", root_path %>
         </span>
+      <% else %>
+        <span>
+          <%= pluralize(@user.expenses.count, "expense") %>
+        </span>
       <% end %>	
     </section>
     <section>

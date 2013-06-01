@@ -8,6 +8,7 @@ class Expense < ActiveRecord::Base
   
   validates :user_id, presence: true
   validates :amount, presence: true, numericality: true
+  validates :tag_list, presence: true
   
   default_scope order: 'expenses.created_at DESC'
   
