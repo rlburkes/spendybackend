@@ -4,6 +4,8 @@ class StaticPagesController < ApplicationController
       @expense = current_user.expenses.build
       @tags = current_user.feed.tag_counts_on(:tags)
    	  @feed_items = current_user.feed.paginate(page: params[:page])
+   	else 
+   	  render :layout => 'landing' 
    	end
   end
 

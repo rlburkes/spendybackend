@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>  
+    <%= stylesheet_link_tag "application", media: "all", 
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport"
+      content="initial-scale=1.0">
+    <meta name="viewport"
+      content="width=320.1">
+    <meta name="viewport"
+     content="user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link href="/apple-touch-startup-image-320x460.png" 
+          media="(device-width: 320px)"  
+          rel="apple-touch-startup-image">
+    
+    <link href="/apple-touch-startup-image-640x920.png" 
+          media="(device-width: 320px) 
+             and (device-height: 480px) 
+             and (-webkit-device-pixel-ratio: 2)" 
+          rel="apple-touch-startup-image">
+    
+    <link href="/apple-touch-startup-image-640x1096.png" 
+          media="(device-width: 320px) 
+             and (device-height: 568px) 
+             and (-webkit-device-pixel-ratio: 2)" 
+          rel="apple-touch-startup-image">
+    
+    <link rel="apple-touch-icon-precomposed" href="/icon.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/icon@2x.png" />
+    <%= render 'layouts/shim' %>
+  </head>
+  <style type="text/css">
+    .bodee {
+      background-image:url('/background.png');
+      background-size: 100%;
+      margin-top: 40px;
+    }
+	.fooStyle {
+	  color: white;
+	  text-shadow: black 0.1em 0.1em 0.2em;
+	}
+  </style>
+  <body class="bodee">
+    <div>  
+	  <div class="center">
+        <img src="/Spendy.png" alt="" style="width: 10.0em">
+	  </div>  
+	  <div class="row">
+		  <div class="span6 offset3">
+			<%= form_for(:session, url: sessions_path) do |f| %>
+		
+			  <%= f.label :email, class: "fooStyle" %>
+			  <%= f.text_field :email %>
+		
+			  <%= f.label :password, class: "fooStyle" %>
+			  <%= f.password_field :password %>
+		
+			   <div class="center"><%= f.submit "Sign in", class: "btn btn-large btn-primary" %></div>
+			<% end %>
+		    
+			 <div class="center">
+			   <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+			   <p>Learn More <%= link_to "About", about_path %> Spendy</p>
+			</div>
+		  </div>
+	  </div>
+    </div>
+  </body>
+</html>
