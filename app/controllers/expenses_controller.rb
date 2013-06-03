@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
-  before_filter :signed_in_user, only: [:create, :destroy]
-  before_filter :correct_user,   only: :destroy
+  before_filter :signed_in_user, only: [:create, :edit, :update, :destroy]
+  before_filter :correct_user,   only: [:edit, :update, :destroy]
   
   def index
   end
@@ -18,6 +18,20 @@ class ExpensesController < ApplicationController
       @feed_items = current_user.feed.paginate(page: params[:page])
       @tags = current_user.feed.tag_counts_on(:tags)
       render 'static_pages/home'
+    end
+  end
+  
+  def edit
+    @expense = Expense.find(params[:id])
+  end
+  
+  def update
+    @expense = Expense.find(params[:id])
+    if @expense.update_attributes(params[:expense])
+      flash[:success] = "Expense updated"
+      redirect_to root_path
+    else
+      render 'edit'
     end
   end
   

@@ -11,7 +11,7 @@ Spendyserver::Application.routes.draw do
   #limited REST actions
   resources :sessions, only: [:new, :create, :destroy]
   
-  resources :expenses, only: [:create, :destroy]
+  resources :expenses, only: [:create, :edit, :update, :destroy]
   
   resources :relationships, only: [:create, :destroy]
   
