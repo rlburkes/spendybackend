@@ -1,10 +1,5 @@
-<input id="foo" type="tel" style="text-align: right; width: 200px;"/> <br/>
+<input id="foo" type="tel" style="text-align: right; width: 200px;"  onchange="alert('foo')"/> <br/>
 <%= render 'expenses/tag_quick' %> <br /><br/>
 <script type="text/javascript">
-	$('#foo').blur(function() {
-	  
-	});
-	$('#foo').click(function() {
-      $('#foo').blur();
-    });
+
 </script>

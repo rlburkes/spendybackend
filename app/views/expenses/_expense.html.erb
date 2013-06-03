@@ -13,5 +13,6 @@
     <%= link_to "delete", expense, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: expense.amount %>
+    <%= link_to 'edit', edit_expense_path(expense) %>
   <% end %>
 </li>
