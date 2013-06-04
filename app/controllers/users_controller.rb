@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   
   def index
   	@users = User.paginate(page: params[:page])
+    @total = Expense.sum(:amount)
+    @numUsers = User.count
+    @average = @total / Expense.count
+    @tags = Expense.tag_counts_on(:tags).limit(3).order('count desc')
   	
   	respond_to do |format|
       format.html # index.html.erb

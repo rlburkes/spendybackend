@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3650216182">
+  <component name="DataSourceManagerImpl" format="xml" hash="1017846255">
     <data-source source="LOCAL" name="Rails spendyserver: test" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="1481735a-f1cb-4a9f-b699-31120e8ba79e">
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/test.sqlite3</jdbc-url>
@@ -16,6 +16,18 @@
       <libraries>
         <library>
           <url>file://</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Rails spendyserver: production" product="" version="" jdbc-version="" driver-name="" driver-version="" uuid="5e7815ad-acf4-4921-8755-229d335a5170">
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:postgres_production</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-driver-license.txt</url>
+        </library>
+        <library>
+          <url>jar://$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/postgresql-9.2-1002.jdbc3.jar!/</url>
         </library>
       </libraries>
     </data-source>
