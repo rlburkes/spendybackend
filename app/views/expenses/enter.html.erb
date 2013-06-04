@@ -1,5 +1,8 @@
-<input id="foo" type="tel" style="text-align: right; width: 200px;"  onchange="alert('foo')"/> <br/>
+<input id="foo" type="tel" style="text-align: right; width: 200px;" value="0.00"/> <br/>
 <%= render 'expenses/tag_quick' %> <br /><br/>
 <script type="text/javascript">
-
+$('#foo').bind('input propertychange', function() {
+	if (this.value.substr(this.value.length - 1) == '46')
+	  alert('foo')
+});
 </script>

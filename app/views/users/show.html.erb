@@ -19,12 +19,22 @@
     <section>
       <%= render 'shared/stats' %>
     </section>
+    <section>
+      <b>Last Week: &nbsp</b>
+      <% last = Expense.where(created_at: Chronic.parse('Last Monday')..Chronic.parse('Last Sunday')).where(user_id: @user.id).sum(:amount) %>
+      <%= pretty_money(last) %><br />
+      <% this = Expense.where(created_at: Chronic.parse('Monday This Week')..Chronic.parse('Sunday This Week')).where(user_id: @user.id).sum(:amount) %>
+      <div><b>This Week: &nbsp</b>
+      <% difference = (last - this) * -1 %>
+      <%= pretty_money(this) %> (<div style="color:<%= difference > 0 ? 'red' : 'green'  %>; display:inline">
+      <%= difference > 0 ? '+' + pretty_money(difference) : '-' + pretty_money(difference.abs) %></div>)</div>
+    </section>
   </aside>
   <div class="span8">
     <%= render 'follow_form' if signed_in? %>
     <% if current_user == @user || current_user.following?(@user) && @user.following?(current_user) %>
 		<% if @user.expenses.any? %>
-		  <h3>Expenses (<%= @user.expenses.count %>) - $<%= number_with_precision(@total, precision: 2) %></h3>
+		  <h3>Expenses (<%= @user.expenses.count %>) - <%= pretty_money(@total) %></h3>
 		  <ol class="expenses">
 			<%= render @expenses %>
 		  </ol>

@@ -7,4 +7,9 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+  
+  def pretty_money(amount)
+    '$' + number_with_precision(amount, precision: 2) 
+  end
+
 end
