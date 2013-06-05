@@ -1,0 +1,27 @@
+CACHE MANIFEST
+
+# This is a comment.
+
+# Cache manifest version 0.0.1
+
+# If you change the version number in this comment,
+
+# the cache manifest is no longer byte-for-byte
+
+# identical.
+
+
+/apple-touch-startup-image-320x460.png
+/apple-touch-startup-image-640x920.png
+/apple-touch-startup-image-640x1096.png
+/background.png
+/icon.png
+/icon@2x.png
+/Spendy.png
+
+
+
+CACHE:
+
+# Additional items to cache.
+/assets/application.js
