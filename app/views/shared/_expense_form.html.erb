@@ -2,7 +2,7 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.label :amount %>
-    <%= f.text_field :amount, :type => 'number'%>
+    <%= f.text_field :amount, :type => 'tel', :onkeyup => "convertToFloat(this,event,2);", :value => '0.00' %>
     <%= f.label :tags %>
     <%=h f.text_field_with_list :tag_list, :label => "Tag List", :datalist => @tags %>
     <ul>
