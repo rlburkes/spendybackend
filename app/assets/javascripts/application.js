@@ -33,3 +33,30 @@ function convertToFloat(obj, event, decimal) {
     obj.value = convertedNum.toFixed(decimal);
     return;
 }
+
+function setCursorAtEnd(node){
+    setTimeout(function(){
+        setCursor(node,node.value.length);
+    },10);
+}
+
+function setCursor(node,pos){
+
+    var node = (typeof node == "string" || node instanceof String) ? document.getElementById(node) : node;
+
+    if(!node){
+        return false;
+    }else if(node.createTextRange){
+        var textRange = node.createTextRange();
+        textRange.collapse(true);
+        textRange.moveEnd(pos);
+        textRange.moveStart(pos);
+        textRange.select();
+        return true;
+    }else if(node.setSelectionRange){
+        node.setSelectionRange(pos,pos);
+        return true;
+    }
+
+    return false;
+}

@@ -5,7 +5,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/public/apple-touch-startup-image-640x1136.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_expense_form.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_expense_form.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="spendyserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,7 +18,8 @@
     <file path="/index.html.erb" changelist="71e5488d-d950-4683-a647-1e05ca9d0298" time="1370391429960" ignored="false" />
     <file path="/custom.css.scss" changelist="71e5488d-d950-4683-a647-1e05ca9d0298" time="1370379704114" ignored="false" />
     <file path="/README.rdoc" changelist="71e5488d-d950-4683-a647-1e05ca9d0298" time="1370392347116" ignored="false" />
-    <file path="/_expense_form.html.erb" changelist="71e5488d-d950-4683-a647-1e05ca9d0298" time="1370395127204" ignored="false" />
+    <file path="/_expense_form.html.erb" changelist="71e5488d-d950-4683-a647-1e05ca9d0298" time="1370396339163" ignored="false" />
+    <file path="/application.js" changelist="71e5488d-d950-4683-a647-1e05ca9d0298" time="1370396608402" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,19 +44,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_expense_form.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/shared/_expense_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="9" selection-start="485" selection-end="485" vertical-scroll-proportion="-6.25">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="application.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="52" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.7191781">
+            <state line="57" column="51" selection-start="1798" selection-end="1798" vertical-scroll-proportion="0.8458904">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -64,28 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="static_pages.js.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/static_pages.js.coffee">
+      <file leaf-file-name="_expense_form.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/shared/_expense_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users.js.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/users.js.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sessions.js.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/sessions.js.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="10" column="133" selection-start="521" selection-end="521" vertical-scroll-proportion="-6.25">
               <folding />
             </state>
           </provider>
@@ -116,8 +89,8 @@
         <option value="$PROJECT_DIR$/app/views/users/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
         <option value="$PROJECT_DIR$/README.rdoc" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/views/shared/_expense_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
       </list>
     </option>
   </component>
@@ -785,14 +758,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/shared/_expense_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="9" selection-start="485" selection-end="485" vertical-scroll-proportion="-6.25">
+        <state line="10" column="133" selection-start="521" selection-end="521" vertical-scroll-proportion="-6.25">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="52" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.7191781">
+        <state line="57" column="51" selection-start="1798" selection-end="1798" vertical-scroll-proportion="0.8458904">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
