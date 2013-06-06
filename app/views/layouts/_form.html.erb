@@ -39,6 +39,20 @@
         </button>
       </div>
 
+    <%= f.label :currency_locale, "Currency Locale" %>
+    <%= f.hidden_field :currency_locale %>
+    <div class="btn-group bottom-padd" data-toggle="buttons-radio" data-target="user_currency_locale">
+      <button type="button" id="localeButton0" class="btn <%= @user.currency_locale == '$' ? 'active' : '' %> " data-toggle="button" value="$" onclick="javascript:document.getElementById('user_currency_locale').value=this.value" >
+        $
+      </button>
+      <button type="button" id="localeButton1" class="btn <%= @user.currency_locale == '£' ? 'active' : '' %> " data-toggle="button" value="£" onclick="javascript:document.getElementById('user_currency_locale').value=this.value" >
+        £
+      </button>
+      <button type="button" id="localeButton2" class="btn <%= @user.currency_locale == '€' ? 'active' : '' %> " data-toggle="button" value="€" onclick="javascript:document.getElementById('user_currency_locale').value=this.value" >
+        €
+      </button>
+    </div>    <br/>
+
   <%= f.submit yield(:submit_button_text), class: "btn btn-large btn-primary" %>
 
 <% end %>

@@ -8,8 +8,8 @@ module ApplicationHelper
     end
   end
   
-  def pretty_money(amount)
-    '$' + number_with_precision(amount, precision: 2) 
+  def pretty_money(user, amount)
+    user.currency_locale + number_with_precision(amount, precision: 2)
   end
 
   def get_day_symbol_for_int(dayInt)

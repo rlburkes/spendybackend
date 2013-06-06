@@ -1,22 +1,28 @@
 <% provide(:title, params[:tag]) %> 
-<h2><%= params[:tag].split(',').join(', ') %> <br/> Total: $<%= number_with_precision(@total, precision: 2) %> </h2>
-
+<h3> Insights </h3>
+<section>
+  <%= params[:tag].split(',').join(', ') %> <br/> <b>Total: &nbsp</b> <%= pretty_money(@user, @total) %>
+</section>
 <section>
   <b>Last Week: &nbsp</b>
 
-  <%= pretty_money(@last) %><br />
+  <%= pretty_money(@user, @last) %><br />
   <div><b>This Week: &nbsp</b>
     <% difference = (@last - @this) * -1 %>
-    <%= pretty_money(@this) %> (<div style="color:<%= difference > 0 ? 'red' : 'green'  %>; display:inline">
-    <%= difference > 0 ? '+' + pretty_money(difference) : '-' + pretty_money(difference.abs) %></div>)</div>
+    <%= pretty_money(@user, @this) %> (<div style="color:<%= difference > 0 ? 'red' : 'green'  %>; display:inline">
+    <%= difference > 0 ? '+' + pretty_money(@user, difference) : '-' + pretty_money(@user, difference.abs) %></div>)</div>
 </section>
-
-
-<%= render partial: 'expenses/tag_list' %> <br/><br/>
+<br />
+<section>
+  <%= render partial: 'expenses/tag_list' %>
+</section>
+<br />
 <% if @users.count > 1 %>
-	<% @users.each do |user| %>
-	  <%= render partial: 'shared/user_list', locals: {:user => user} %>
-	<% end %>
+    <section>
+      <% @users.each do |user| %>
+          <%= render partial: 'shared/user_list', locals: {:user => user} %>
+      <% end %>
+    </section>
 <% end %>
 <% if @expenses.any? %>
   <ol class="expenses">

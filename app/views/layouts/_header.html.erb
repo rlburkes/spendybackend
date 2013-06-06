@@ -5,7 +5,7 @@
 	  <nav>
         <ul class="nav pull-right">
           <% if signed_in? %>
-            <li><%= link_to "$$", tagged_url(:tag => '', :user => '') %></li>
+            <li><%= link_to current_user.currency_locale + current_user.currency_locale, tagged_url(:tag => '', :user => '') %></li>
             <li><%= link_to "Users", users_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">

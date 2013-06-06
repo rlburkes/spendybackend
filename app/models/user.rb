@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   
   acts_as_tagger
   
-  attr_accessible :email, :name, :password, :password_confirmation, :week_start
+  attr_accessible :email, :name, :password, :password_confirmation, :week_start, :currency_locale
   has_many :expenses, dependent: :destroy
   
   #The use of a foreign_key here is because the relationships table

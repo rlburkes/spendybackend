@@ -3,7 +3,7 @@
   <span class="user">
     <%= link_to feed_item.user.name, feed_item.user %>
   </span>
-  <span class="amount">$<%= number_with_precision(feed_item.amount, precision: 2) %></span>
+  <span class="amount"><%= pretty_money(feed_item.user, feed_item.amount)  %></span>
   <div>
 	<% feed_item.tags.any? %>
 	  <% feed_item.tags.each do |tag| %>

@@ -1,5 +1,5 @@
 <li>
-  <span class="amount">$<%= number_with_precision(expense.amount, precision: 2) %></span>
+  <span class="amount"><%= pretty_money(@user, expense.amount)  %></span>
   <div>
 	<% expense.tags.any? %>
 	  <% expense.tags.each do |tag| %>

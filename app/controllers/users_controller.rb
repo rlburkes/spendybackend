@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   	@users = User.paginate(page: params[:page])
     @total = Expense.sum(:amount)
     @numUsers = User.count
+    @user = current_user
     @average = @total / Expense.count
     @tags = Expense.tag_counts_on(:tags).limit(3).order('count desc')
   	

@@ -12,7 +12,7 @@
       </a>
       <a>
         <strong class="stat" style="font-size: 22px;">
-          <%= pretty_money(@total) %>
+          <%= pretty_money(@user, @total) %>
         </strong>
         entered
       </a>
@@ -20,7 +20,7 @@
     </section>
     <section>
       <strong class="stat" style="font-size: 22px;">
-        <%= pretty_money( @average) %>
+        <%= pretty_money(@user, @average) %>
         <br/>
         <div style="font-size: 12px;">Average Expense</div>
       </strong>
