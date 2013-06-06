@@ -1,5 +1,17 @@
 <% provide(:title, params[:tag]) %> 
 <h2><%= params[:tag].split(',').join(', ') %> <br/> Total: $<%= number_with_precision(@total, precision: 2) %> </h2>
+
+<section>
+  <b>Last Week: &nbsp</b>
+
+  <%= pretty_money(@last) %><br />
+  <div><b>This Week: &nbsp</b>
+    <% difference = (@last - @this) * -1 %>
+    <%= pretty_money(@this) %> (<div style="color:<%= difference > 0 ? 'red' : 'green'  %>; display:inline">
+    <%= difference > 0 ? '+' + pretty_money(difference) : '-' + pretty_money(difference.abs) %></div>)</div>
+</section>
+
+
 <%= render partial: 'expenses/tag_list' %> <br/><br/>
 <% if @users.count > 1 %>
 	<% @users.each do |user| %>

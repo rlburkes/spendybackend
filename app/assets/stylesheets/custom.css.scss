@@ -271,3 +271,11 @@ input {
   margin-top: 45px;
   @include box_sizing;
 }
+
+.btn-min-padd  {
+  padding: 4px 7px;
+}
+
+.bottom-padd {
+  margin-bottom: 20px;
+}

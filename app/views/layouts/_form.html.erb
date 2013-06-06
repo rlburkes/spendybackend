@@ -13,5 +13,32 @@
   <%= f.label :password_confirmation, "Confirmation" %>
   <%= f.password_field :password_confirmation %>
 
+  <%= f.label :week_start, "Week Starts" %>
+  <%= f.hidden_field :week_start %>
+      <div class="btn-group bottom-padd" data-toggle="buttons-radio" data-target="user_week_start">
+        <button type="button" id="toggleButton6" class="btn <%= @user.week_start == 6 ? 'active' : '' %> btn-min-padd" data-toggle="button" value="6" onclick="javascript:document.getElementById('user_week_start').value=this.value" >
+          Sun
+        </button>
+        <button type="button" id="toggleButton0" class="btn <%= @user.week_start == 0 ? 'active' : '' %> btn-min-padd" data-toggle="button" value="0" onclick="javascript:document.getElementById('user_week_start').value=this.value" >
+          Mon
+        </button>
+        <button type="button" id="toggleButton1" class="btn <%= @user.week_start == 1 ? 'active' : '' %> btn-min-padd" data-toggle="button" value="1" onclick="javascript:document.getElementById('user_week_start').value=this.value" >
+          Tue
+        </button>
+        <button type="button" id="toggleButton2" class="btn <%= @user.week_start == 2 ? 'active' : '' %> btn-min-padd" data-toggle="button" value="2" onclick="javascript:document.getElementById('user_week_start').value=this.value" >
+          Wed
+        </button>
+        <button type="button" id="toggleButton3" class="btn <%= @user.week_start == 3 ? 'active' : '' %> btn-min-padd" data-toggle="button" value="3" onclick="javascript:document.getElementById('user_week_start').value=this.value" >
+          Thur
+        </button>
+        <button type="button" id="toggleButton4" class="btn <%= @user.week_start == 4 ? 'active' : '' %> btn-min-padd" data-toggle="button" value="4" onclick="javascript:document.getElementById('user_week_start').value=this.value" >
+          Fri
+        </button>
+        <button type="button" id="toggleButton5" class="btn <%= @user.week_start == 5 ? 'active' : '' %> btn-min-padd" data-toggle="button" value="5" onclick="javascript:document.getElementById('user_week_start').value=this.value" >
+          Sat
+        </button>
+      </div>
+
   <%= f.submit yield(:submit_button_text), class: "btn btn-large btn-primary" %>
+
 <% end %>

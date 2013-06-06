@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   
   acts_as_tagger
   
-  attr_accessible :email, :name, :password, :password_confirmation
+  attr_accessible :email, :name, :password, :password_confirmation, :week_start
   has_many :expenses, dependent: :destroy
   
   #The use of a foreign_key here is because the relationships table
@@ -74,6 +74,6 @@ class User < ActiveRecord::Base
   private
 	def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
-	end
+  end
 
 end
