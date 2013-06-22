@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require twitter/typeahead.js
 
 function convertToFloat(obj, event, decimal) {
     var value = obj.value.replace(/[^0-9.]/g,'');

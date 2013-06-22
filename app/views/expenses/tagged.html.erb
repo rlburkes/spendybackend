@@ -1,11 +1,13 @@
 <% provide(:title, params[:tag]) %> 
 <h3> Insights </h3>
 <section>
-  <%= params[:tag].split(',').join(', ') %> <br/> <b>Total: &nbsp</b> <%= pretty_money(@user, @total) %>
+  <%= params[:tag].split(',').join(' or ') %> <br/> <b>Total: &nbsp</b> <%= pretty_money(@user, @total) %>
+  <% if @andTotal && @andOnlyTags && @andOnlyTags.any? && params[:tag].split(',').count > 1 %>
+    <br /><%= params[:tag].split(',').join(' & ') %> <br/> <b>Total: &nbsp</b> <%= pretty_money(@user, @andTotal) %>
+  <% end %>
 </section>
 <section>
   <b>Last Week: &nbsp</b>
-
   <%= pretty_money(@user, @last) %><br />
   <div><b>This Week: &nbsp</b>
     <% difference = (@last - @this) * -1 %>
@@ -24,7 +26,7 @@
       <% end %>
     </section>
 <% end %>
-<% if @expenses.any? %>
+<% if @expenses && @expenses.any? %>
   <ol class="expenses">
     <%= render partial: 'shared/feed_item', collection: @expenses %>
   </ol>

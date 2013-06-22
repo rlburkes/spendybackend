@@ -28,6 +28,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'acts-as-taggable-on'
 gem 'heroku'
 gem 'chronic'
+gem 'twitter-typeahead-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

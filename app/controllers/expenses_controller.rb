@@ -49,8 +49,15 @@ class ExpensesController < ApplicationController
     if params[:tag].present? 
       @expenses = Expense.tagged_with(params[:tag], any: true).where(:user_id => @includeIds)
       @total = 0.00
+      @andOnlyTags = []
+      @andTotal = 0.00
+      paramList = params[:tag].split(',')
       @expenses.each do |expense|
         @total += expense.amount
+        if (expense.tag_list & paramList).count == paramList.count
+          @andOnlyTags.push(expense)
+          @andTotal += expense.amount
+        end
       end
       @last = Expense.tagged_with(params[:tag], any: true).where(:user_id => @includeIds, created_at: 1.week.ago.beginning_of_week(get_day_symbol_for_int(@user.week_start))..1.week.ago.end_of_week(get_day_symbol_for_int(@user.week_start))).sum(:amount)
       @this = Expense.tagged_with(params[:tag], any: true).where(:user_id => @includeIds, created_at: Time.now.beginning_of_week(get_day_symbol_for_int(@user.week_start))..Time.now.end_of_week(get_day_symbol_for_int(@user.week_start))).sum(:amount)
